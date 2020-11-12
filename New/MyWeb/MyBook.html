@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="js/jquery.js"></script>
+</head>
+<body>
+    <center><h1> Guestbook </h1></center>
+    <fieldset>
+        <legend>ลงบันทุกสมุดเยี่ยม</legend>
+        <textarea id="comment" rows=10 cols="100%"></textarea>
+        <br>ชื่อ : <input type="text" id="fullname">
+        <button id="insert"> submit </button>
+    </fieldset>
+    <div id="show"></div>
+    <script>
+        $(function(){
+            var db = openDatabase('mydb', '1.0', 'Test DB', 2 * 1024 * 1024);
+        
+
+        db.transaction(function (tx) {
+            var sql="create table if not exists guestbook";
+                sql+="(id INTEGER NOT NULL PRIMARY KEY AUTOINCREMNT,";
+                sql+="comment varchar(100),";
+                sql+="fullname varchar(10)";
+                sql+="createdate varchar(20));"
+           //     $("#show").html(sql);
+           //     tx.executeSql(sql);
+        });
+        $("#insert").click(function(){
+            db.transaction(function(tx) {
+                var comment=$('#comment').val();
+                var fullname=$("#fullname").val();
+
+                var creatdate=Date.now()
+
+                var sql='insert into guestbook(comment,fullname,creatdate) values("'
+                    sql+=comment+' "," '+fullname+' "," '+creatdate+ '");';
+                $("#show").html(sql);
+                tx.executeSql(sql);
+            });
+        });
+    });
+    </script>
+</body>
+</html>

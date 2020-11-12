@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>จงเลือก</title>
+    <script src="js/jquery.js"></script>
+
+    <script src="js/jquery-ui.min.js"></script>
+    <script>
+        $(function(){
+                $("#A").on({
+                    mouseenter:function(){
+                        $("#A1").show(1000);
+                        $("#A2").hide(2000);
+                        $("#A3").hide(2000);
+                    }
+                });
+                $("#B").on({
+                    mouseenter:function(){
+                        $("#A1").hide(2000);
+                        $("#A2").show(1000);
+                        $("#A3").hide(2000);
+                    }
+        });
+        $("#C").on({
+                    mouseenter:function(){
+                        $("#A1").hide(2000);
+                        $("#A2").hide(2000);
+                        $("#A3").show(1000);
+                    }
+            })
+        });
+    </script>
+    <style>
+        #divA,#divB,#divC{
+            display: none;
+            
+        }
+    </style>
+</head>
+<body>
+    <center><h1>อะไรมี 4 ขา</h1></center>
+    <button id="A"> ไก่ </button>
+    <button id="B"> หมา </button>
+    <button id="C"> นก </button>
+    <div id=divA>A A A A A</div>
+    <div id=divB>B B B B B</div>
+    <div id=divC>C C C C C</div>
+    <br>
+    <img src="images/cancel-297373_960_720.png" width="500" id="A1" hidden>
+    <img src="images/dsc_artiCoverImg7431631557701007.jpg" width="500" id="A2" hidden>
+    <img src="images/cancel-297373_960_720.png" width="500" id="A3" hidden>
+</body>
+</html>

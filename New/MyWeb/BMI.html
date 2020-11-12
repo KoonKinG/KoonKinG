@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI</title>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/jquery.js"></script>
+    <p>หาค่าBMI:</p>
+    <script>
+        function getData(form){
+            weight=form.weight.value
+            height=form.height.value
+            weight=Number.parseInt(weight)
+            height=Number.parseInt(height)
+            heightz=(height*height)/10000
+            sum=weight/heightz
+            message=`แสดงข้อมูลดังนี้ <br> น้ำหนัก คือ ${weight} <br>`
+            message+=`ส่วนสูง คือ ${height}<br> BMI คือ ${sum}`
+            document.getElementById("answer").innerHTML=message
+        
+            }
+    </script>
+
+
+<body>
+    <form id="BMI">
+        ระบุน้ำหนัก(kg.) : <input type="number" id="weight">
+        ระบุส่วนสูง(cm.) : <input type="number" id="height">
+        <input type="button" value="คลิ๊ก" onclick="getData(this.form)">
+</form> 
+<div id="answer"></div>
+
+</body>
+</html>

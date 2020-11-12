@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ภาษี</title>
+    <script>
+        function getBDO(form){
+            num1=form.num1.value
+            num2=form.num2.value
+            num1=Number.parseInt(num1)
+            num2=Number.parseInt(num2)
+            sum=num1*num2
+            tax=sum*0.85
+            vat=sum*0.7
+            message=`แสดงข้อมูลดังนี้ <br> จำนวณ  ${num1} ชิ้น <br>`
+            message+=`ราคาต่อชิ้น  ${num2} บาท <br> ราคารวม ${sum} บาท <br> มีห่อ vip ${tax} บาท <br> ไม่มีห่อ vip ${vat} บาท`
+
+            document.getElementById("answer").innerHTML=message
+        }
+    </script>
+</head>
+<body>
+    <center><h1>ภาษีในเกม Black Desert Online </h1></center>
+    <form name="myform" action="testform3.html" method="get">
+    ระบุจำนวณ : <input type="number" name="num1">
+    ระบุราคาสินค้า : <input type="number" name="num2"> <br>
+    <input type="button" value="คลิ๊ก" onclick="getBDO(this.form)">
+</form>
+<div id="answer">
+
+
+</div>
+</body>
+</html>

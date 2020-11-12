@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>สิ่งที่ชอบ</title>
+    <script>
+    
+    function result(form){
+
+  var checkboxes = document.getElementsByName('active');
+  for (var checkbox of checkboxes) {
+    if (checkbox.checked)
+      document.body.append(checkbox.value + ' ');
+  }
+    }
+</script>
+</head>
+<Center><H1>สิ่งที่ชอบ</H1></Center>
+<body>
+    <form action="checkBox.html" method="get">
+        <input type="checkbox" name="active" value="หมา" id=""> หมา <br> 
+        <input type="checkbox" name="active" value="แมว" id=""> แมว <br>
+        <input type="checkbox" name="active" value="นก" id=""> นก <br>
+        <input type="checkbox" name="active" value="อัลปาก้า" id=""> อัลปาก้า <br>
+        <input type="button" value="OK!!" onclick="result(this.form)">
+      
+    </form>
+    <div id="ans">
+
+    </div>
+</body>
+</html>
